@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BluetoothSample.MainPage"
+             Title="Bluetooth Sample">
+  <StackLayout>
+    <Label x:Name="deviceState"/>
+    <Button Text="Start Scan" Clicked="StartScan"></Button>
+    <ActivityIndicator x:Name="activityIndicator"/>
+    <ListView x:Name="devicesListView" ItemTapped="OnSelection">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell >
+            <StackLayout Padding="5" Orientation="Horizontal">
+              <Label Text="{Binding Name}" />
+              <Label Text="{Binding Address}" />
+            </StackLayout>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+  </StackLayout>
+</ContentPage>
