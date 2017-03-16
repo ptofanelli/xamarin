@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             x:Class="XamarinMarathon.XamarinViewsPage"
+            Title="Xamarin Forms Views">
+    <ScrollView Orientation="Vertical">
+      <StackLayout Orientation="Vertical" x:Name="stackLayout">
+        
+        <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+        
+        <ActivityIndicator Color="Red" IsRunning="true" />
+        
+        <Button Text="Button" Clicked="ButtonClick"/>
+
+        <ProgressBar x:Name="progressBar" />
+        
+        <DatePicker Date="{x:Static sys:DateTime.Now}">
+          <DatePicker.Format>yyyy-MM-dd</DatePicker.Format>
+          <DatePicker.MinimumDate>
+            <sys:DateTime x:FactoryMethod="Parse">
+              <x:Arguments>
+                <x:String>Jan 1 2000</x:String>
+              </x:Arguments>
+            </sys:DateTime>
+          </DatePicker.MinimumDate>
+          <DatePicker.MaximumDate>
+            <sys:DateTime x:FactoryMethod="Parse">
+              <x:Arguments>
+                <x:String>Dec 31 2050</x:String>
+              </x:Arguments>
+            </sys:DateTime>
+          </DatePicker.MaximumDate>
+        </DatePicker>
+        
+        <Editor Text="Editor Text Box" Keyboard="Numeric"/>
+        
+        <Entry Placeholder="Entry"/>
+    
+        <Image Source="icon.png"  />
+
+        <Picker x:Name="picker"/>
+
+        <Slider/>
+
+        <StackLayout Orientation="Horizontal">
+          <Label x:Name="stepperValue"/>
+          <Stepper x:Name="stepper" ValueChanged="StepperChanged" Value="0" Maximum="100" Minimum="0"/>
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal">
+          <Label Text="Switch"/>
+          <Switch/>
+        </StackLayout>
+
+      
+      </StackLayout>
+    </ScrollView>
+</ContentPage>

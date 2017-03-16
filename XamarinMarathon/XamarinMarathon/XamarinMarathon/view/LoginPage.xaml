@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinMarathon.view.LoginPage"
+             Title="Login" >
+    <StackLayout Padding="10">
+       <ActivityIndicator Color="Blue" x:Name="loading" />
+      <Entry Placeholder="User" Text="{Binding User}"/>
+      <Entry Placeholder="Password" Text="{Binding Password}" IsPassword="true"/>
+      <Button Text="Login" Clicked="Login"/>
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinMarathon.view.SoapWebServiceClient"
+             Title="Soap Web Service Client">
+  <ScrollView>
+    <StackLayout Padding="10">
+      <Label Text="Calculator Web Service" FontSize="Large"/>
+            <Entry Text="{Binding Value1}" Placeholder="First Value" Keyboard="Numeric" />
+            <Entry Text="{Binding Value2}" Placeholder="Second Value" Keyboard="Numeric"/>
+        <StackLayout Orientation="Horizontal">
+            <Button Text="+" Command="{Binding Add}"/>
+            <Button Text="-" Command="{Binding Subtract}"/>
+            <Button Text="*" Command="{Binding Multiply}"/>
+            <Button Text="/" Command="{Binding Divide}"/>
+        </StackLayout>
+        <Label Text="{Binding CountDisplay}" FontSize="Large"/>
+    </StackLayout>
+  </ScrollView>
+</ContentPage>

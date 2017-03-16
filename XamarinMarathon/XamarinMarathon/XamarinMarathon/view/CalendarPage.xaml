@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:tk="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             x:Class="XamarinMarathon.view.CalendarPage">
+  <StackLayout x:Name="layout">
+    <Label x:Name="selectedDate" />
+    <tk:RadCalendar x:Name="calendar"/>
+  </StackLayout>
+</ContentPage>
