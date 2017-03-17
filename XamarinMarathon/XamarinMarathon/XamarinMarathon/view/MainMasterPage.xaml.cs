@@ -69,7 +69,14 @@ namespace XamarinMarathon.view
 
             masterPageItems.Add(new MasterPageItem
             {
-                Title = "Rest WS Sample",
+                Title = "Rest WS Client Sample",
+                IconSource = "icon.png",
+                TargetType = typeof(RestWebServiceClient)
+            });
+
+            masterPageItems.Add(new MasterPageItem
+            {
+                Title = "Connectivity Sample",
                 IconSource = "icon.png",
                 TargetType = typeof(RestWsPage)
             });

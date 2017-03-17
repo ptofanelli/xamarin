@@ -40,6 +40,7 @@
     <Compile Include="IFileAccessHelper.cs" />
     <Compile Include="model\Appointment.cs" />
     <Compile Include="model\Auth.cs" />
+    <Compile Include="model\Book.cs" />
     <Compile Include="model\CategoricalData.cs" />
     <Compile Include="model\Contact.cs" />
     <Compile Include="PeoplePage.xaml.cs">
@@ -53,6 +54,8 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="services\AzureClient.cs" />
+    <Compile Include="services\BookManager.cs" />
+    <Compile Include="view\AddEditBookPage.cs" />
     <Compile Include="view\AutoCompletePage.xaml.cs">
       <DependentUpon>AutoCompletePage.xaml</DependentUpon>
     </Compile>
@@ -78,6 +81,9 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\MasterPageItem.cs" />
+    <Compile Include="view\RestWebServiceClient.xaml.cs">
+      <DependentUpon>RestWebServiceClient.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\RestWsPage.xaml.cs">
       <DependentUpon>RestWsPage.xaml</DependentUpon>
     </Compile>
@@ -178,6 +184,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="view\SoapWebServiceClient.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="view\RestWebServiceClient.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
