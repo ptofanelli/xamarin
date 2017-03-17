@@ -10,7 +10,7 @@
   <MasterDetailPage.Detail>
     <NavigationPage>
       <x:Arguments>
-        <local:XamarinViewsPage />
+        <local:view.XamarinViewsPage />
       </x:Arguments>
     </NavigationPage>
   </MasterDetailPage.Detail>

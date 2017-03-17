@@ -9,7 +9,7 @@ using System.Threading;
 using Xamarin.Forms;
 using XamarinMarathon.model;
 
-namespace XamarinMarathon
+namespace XamarinMarathon.view
 {
     public partial class PeoplePage : ContentPage
     {

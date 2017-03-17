@@ -7,7 +7,7 @@ using Telerik.XamarinForms.Input;
 using Xamarin.Forms;
 using XamarinMarathon.model;
 
-namespace XamarinMarathon
+namespace XamarinMarathon.view
 {
     public partial class XamarinViewsPage : ContentPage
     {

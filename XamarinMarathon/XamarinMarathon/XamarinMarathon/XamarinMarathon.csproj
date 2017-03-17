@@ -43,7 +43,7 @@
     <Compile Include="model\Book.cs" />
     <Compile Include="model\CategoricalData.cs" />
     <Compile Include="model\Contact.cs" />
-    <Compile Include="PeoplePage.xaml.cs">
+    <Compile Include="view\PeoplePage.xaml.cs">
       <DependentUpon>PeoplePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="model\Person.cs" />
@@ -91,7 +91,7 @@
       <DependentUpon>SoapWebServiceClient.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\SourceItem.cs" />
-    <Compile Include="XamarinViewsPage.xaml.cs">
+    <Compile Include="view\XamarinViewsPage.xaml.cs">
       <DependentUpon>XamarinViewsPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -102,7 +102,7 @@
     <None Include="Service References\Calculator\Calculator.wsdl" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="XamarinViewsPage.xaml">
+    <EmbeddedResource Include="view\XamarinViewsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -117,7 +117,7 @@
     <Content Include="xamarin-logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="PeoplePage.xaml">
+    <EmbeddedResource Include="view\PeoplePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
