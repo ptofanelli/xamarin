@@ -56,6 +56,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppInfo\AppInfoIOS.cs" />
+    <Compile Include="Bluetooth\BluetoothAdapterImpl.cs" />
+    <Compile Include="Bluetooth\BluetoothDeviceImpl.cs" />
+    <Compile Include="Bluetooth\BluetoothUtils.cs" />
+    <Compile Include="Bluetooth\IBluetooth.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Media\MediaIOS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

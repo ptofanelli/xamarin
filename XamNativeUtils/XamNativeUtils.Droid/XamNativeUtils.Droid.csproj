@@ -90,12 +90,16 @@
     <Compile Include="Bluetooth\BluetoothAdapterImpl.cs" />
     <Compile Include="Bluetooth\BluetoothDeviceImpl.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="Control\View\RoundedEntryRendered.cs" />
+    <Compile Include="Control\View\RoundedPickerRenderer.cs" />
     <Compile Include="DeviceInfo\DeviceInfoAndroid.cs" />
     <Compile Include="ExternalApps\ExternalAppsAndroid.cs" />
     <Compile Include="FileSystem\FileSystemAndroid.cs" />
     <Compile Include="Media\MediaAndroid.cs" />
+    <Compile Include="Misc\MiscAndroid.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ExternalApps\QrDroid\ScannerAndroid.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -106,6 +110,9 @@
       <Project>{b79dd9b7-adb8-4898-868a-97e9d3673d76}</Project>
       <Name>XamNativeUtils</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\RoundedEntry.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets')" />
