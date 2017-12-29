@@ -8,11 +8,11 @@ using System;
 using Android.Widget;
 using Android.Views;
 
-[assembly: ExportRenderer(typeof(RoundedEntry), typeof(RoundedEntryRendered))]
+[assembly: ExportRenderer(typeof(RoundedEntry), typeof(RoundedEntryRenderer))]
 
 namespace XamNativeUtils.Droid.Control
 {
-    public class RoundedEntryRendered : EntryRenderer
+    public class RoundedEntryRenderer : EntryRenderer
     {
         protected override void OnElementChanged(ElementChangedEventArgs<Entry> e)
         {
@@ -20,13 +20,23 @@ namespace XamNativeUtils.Droid.Control
 
             if (Control != null)
             {
+                
+
                 Control.Background = Resources.GetDrawable(Resource.Drawable.RoundedEntry);
                 Control.SetPadding(1, 1, 1, 1);
                 Control.SetTextColor(Android.Graphics.Color.White);
+                
 
                 if (e.NewElement != null) {
 
                     var entryExt = (e.NewElement as RoundedEntry);
+                    if (entryExt.FieldType == FieldTypes.Search)
+                    {
+                        Control.Background = Resources.GetDrawable(Resource.Drawable.RoundedEntrySearch);
+                        Control.SetPadding(1, 1, 1, 1);
+                        Control.SetTextColor(Android.Graphics.Color.Navy);
+                    }
+
                     Control.ImeOptions = entryExt.ReturnKeyType.GetValueFromDescription();
                     // This is hackie ;-) / A Android-only bindable property should be added to the EntryExt class 
                     Control.SetImeActionLabel(entryExt.ReturnKeyType.ToString(), Control.ImeOptions);
@@ -57,12 +67,17 @@ namespace XamNativeUtils.Droid.Control
         protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             base.OnElementPropertyChanged(sender, e);
+            var entryExt = (sender as RoundedEntry);
+
             if (e.PropertyName == RoundedEntry.ReturnKeyPropertyName)
             {
-                var entryExt = (sender as RoundedEntry);
+                
                 Control.ImeOptions = entryExt.ReturnKeyType.GetValueFromDescription();
                 // This is hackie ;-) / A Android-only bindable property should be added to the EntryExt class 
                 Control.SetImeActionLabel(entryExt.ReturnKeyType.ToString(), Control.ImeOptions);
+
+                
+
             }
         }
 

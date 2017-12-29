@@ -2192,11 +2192,14 @@ namespace XamNativeUtils.Droid
 			// aapt resource value: 0x7f02009f
 			public static int mr_ic_play_light = 2130837663;
 			
-			// aapt resource value: 0x7f0200a1
-			public static int notification_template_icon_bg = 2130837665;
+			// aapt resource value: 0x7f0200a2
+			public static int notification_template_icon_bg = 2130837666;
 			
 			// aapt resource value: 0x7f0200a0
 			public static int RoundedEntry = 2130837664;
+			
+			// aapt resource value: 0x7f0200a1
+			public static int RoundedEntrySearch = 2130837665;
 			
 			static Drawable()
 			{

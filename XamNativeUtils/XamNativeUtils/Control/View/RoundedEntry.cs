@@ -6,6 +6,8 @@ namespace XamNativeUtils.Control
     public class RoundedEntry : Entry
     {
         public const string ReturnKeyPropertyName = "ReturnKeyType";
+        public const string FieldTypePropertyName = "FieldType";
+
         public new event EventHandler Completed;
 
         public RoundedEntry() { }
@@ -20,6 +22,18 @@ namespace XamNativeUtils.Control
         {
             get { return (ReturnKeyTypes)GetValue(ReturnKeyTypeProperty); }
             set { SetValue(ReturnKeyTypeProperty, value); }
+        }
+
+        public static readonly BindableProperty FieldTypeProperty = BindableProperty.Create(
+        propertyName: FieldTypePropertyName,
+        returnType: typeof(FieldTypes),
+        declaringType: typeof(RoundedEntry),
+        defaultValue: FieldTypes.Default);
+
+        public FieldTypes FieldType
+        {
+            get { return (FieldTypes)GetValue(FieldTypeProperty); }
+            set { SetValue(FieldTypeProperty, value); }
         }
 
         public void InvokeCompleted()
@@ -44,5 +58,11 @@ namespace XamNativeUtils.Control
         Done,
         EmergencyCall,
         Continue
+    }
+
+    public enum FieldTypes : int
+    {
+        Default,
+        Search
     }
 }
