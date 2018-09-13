@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:GalleryTimeline"
+             x:Class="GalleryTimeline.MainPage"
+             x:Name="page"
+             Title="Timeline">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="NewPost" Text="Novo"/>
+    </ContentPage.ToolbarItems>
+
+    <StackLayout Padding="5" BackgroundColor="LightBlue">
+        <!-- ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="True"/ -->
+        <ListView  
+            ItemsSource="{Binding Posts}" 
+            HasUnevenRows="true" 
+            MinimumHeightRequest="55"
+            SelectionMode="None"
+            IsPullToRefreshEnabled="True"
+            IsRefreshing="{Binding IsBusy}"
+            RefreshCommand="{Binding RefreshCommand}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame
+                            Margin="0,0,0,10"
+                            HasShadow="True"
+                            CornerRadius="4"
+                            Padding="5">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Path=BindingContext.EditPostCommand, Source={x:Reference Name=page}}" CommandParameter="{Binding .}"/>
+                            </Frame.GestureRecognizers>
+                            <StackLayout Orientation="Vertical">
+                                <Image 
+                                    Source="{Binding Image}"
+                                    Aspect="AspectFit"
+                                    HeightRequest="200" 
+                                    HorizontalOptions="FillAndExpand"/>
+                                <Label 
+                                    Text="{Binding Text}"
+                                    FontAttributes="Bold"
+                                    TextColor="#1976D2"
+                                    HorizontalOptions="FillAndExpand"
+                                    HorizontalTextAlignment="Center"/>
+                            </StackLayout>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>

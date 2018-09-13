@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GalleryTimeline.NewPostPage"
+             Title="Post">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Remover" Command="{Binding DeletePostCommand}" IsDestructive="True" />
+        <ToolbarItem Text="Salvar" Command="{Binding SavePostCommand}"/>
+        
+        
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+            <StackLayout 
+                Padding="5"
+                x:Name="layout"
+                Orientation="Vertical"
+                BackgroundColor="LightBlue">
+
+            <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="True"/>
+
+            <Label Text="Foto" 
+                   FontAttributes="Bold"
+                   TextColor="#1976D2"
+                   HorizontalOptions="FillAndExpand" 
+                   HorizontalTextAlignment="Center"/>
+            <Frame 
+                Padding="5"
+                   HorizontalOptions="FillAndExpand"
+					VerticalOptions="FillAndExpand"
+                   HasShadow="True"
+                   CornerRadius="4">
+                <Image 
+                    x:Name="Photo" 
+                    Aspect="AspectFit"
+                    HorizontalOptions="FillAndExpand"
+					VerticalOptions="FillAndExpand"
+                    Source="{Binding PostImage}"/>
+            </Frame>
+
+            <Label Text="Texto" 
+                   FontAttributes="Bold"
+                   TextColor="#1976D2"
+                   HorizontalOptions="FillAndExpand" 
+                   HorizontalTextAlignment="Center"/>
+            <Frame
+                Padding="5"
+                HasShadow="True"
+                CornerRadius="4">
+                <Editor 
+                HeightRequest="100"
+                HorizontalOptions="FillAndExpand"
+                Text="{Binding PostText}"/>
+            </Frame>
+                
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Galeria" Clicked="PickPhotoAsync" HorizontalOptions="EndAndExpand" BackgroundColor="#2196F3" TextColor="White"/>
+                <Button Text="Câmera" Clicked="TakePhotoAsync" HorizontalOptions="StartAndExpand" BackgroundColor="#2196F3" TextColor="White"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
