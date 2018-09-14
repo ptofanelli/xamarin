@@ -7,7 +7,7 @@
              Title="Timeline">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem x:Name="NewPost" Text="Novo"/>
+        <ToolbarItem x:Name="NewPost" Text="New"/>
     </ContentPage.ToolbarItems>
 
     <StackLayout Padding="5" BackgroundColor="LightBlue">
@@ -32,6 +32,12 @@
                                 <TapGestureRecognizer Command="{Binding Path=BindingContext.EditPostCommand, Source={x:Reference Name=page}}" CommandParameter="{Binding .}"/>
                             </Frame.GestureRecognizers>
                             <StackLayout Orientation="Vertical">
+                                <Label 
+                                    Text="{Binding UpdatedAt, StringFormat='{0:MM/dd/yyyy hh:mm tt}'}"
+                                    FontAttributes="Bold"
+                                    TextColor="#1976D2"
+                                    HorizontalOptions="FillAndExpand"
+                                    HorizontalTextAlignment="Center"/>
                                 <Image 
                                     Source="{Binding Image}"
                                     Aspect="AspectFit"

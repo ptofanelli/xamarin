@@ -4,8 +4,8 @@
              x:Class="GalleryTimeline.NewPostPage"
              Title="Post">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Remover" Command="{Binding DeletePostCommand}" IsDestructive="True" />
-        <ToolbarItem Text="Salvar" Command="{Binding SavePostCommand}"/>
+        <ToolbarItem Text="Remove" Command="{Binding DeletePostCommand}" IsDestructive="True" />
+        <ToolbarItem Text="Save" Command="{Binding SavePostCommand}"/>
         
         
     </ContentPage.ToolbarItems>
@@ -18,7 +18,7 @@
 
             <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="True"/>
 
-            <Label Text="Foto" 
+            <Label Text="Picture" 
                    FontAttributes="Bold"
                    TextColor="#1976D2"
                    HorizontalOptions="FillAndExpand" 
@@ -37,7 +37,7 @@
                     Source="{Binding PostImage}"/>
             </Frame>
 
-            <Label Text="Texto" 
+            <Label Text="Comments" 
                    FontAttributes="Bold"
                    TextColor="#1976D2"
                    HorizontalOptions="FillAndExpand" 
@@ -53,8 +53,8 @@
             </Frame>
                 
             <StackLayout Orientation="Horizontal">
-                <Button Text="Galeria" Clicked="PickPhotoAsync" HorizontalOptions="EndAndExpand" BackgroundColor="#2196F3" TextColor="White"/>
-                <Button Text="Câmera" Clicked="TakePhotoAsync" HorizontalOptions="StartAndExpand" BackgroundColor="#2196F3" TextColor="White"/>
+                <Button Text="Choose Picture" Clicked="PickPhotoAsync" HorizontalOptions="EndAndExpand" BackgroundColor="#2196F3" TextColor="White"/>
+                <Button Text="Open Camera" Clicked="TakePhotoAsync" HorizontalOptions="StartAndExpand" BackgroundColor="#2196F3" TextColor="White"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

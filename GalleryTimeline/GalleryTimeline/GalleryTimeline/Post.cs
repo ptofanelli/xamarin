@@ -15,6 +15,8 @@ namespace GalleryTimeline
 
         public string ImageBase64 { get; set; }
 
+        public DateTime UpdatedAt { get; set; }
+
         [JsonIgnore]
         public byte[] ImageBytes { get; set; }
 
@@ -23,5 +25,10 @@ namespace GalleryTimeline
         {
             return new MemoryStream(ImageBytes);
         }); } }
+
+        public bool ShouldSerializeUpdatedAt()
+        {
+            return false;
+        }
     }
 }

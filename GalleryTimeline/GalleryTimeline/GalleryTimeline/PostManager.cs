@@ -1,6 +1,8 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -53,7 +55,7 @@ namespace GalleryTimeline
             return JsonConvert.DeserializeObject<Post>(await response.Content.ReadAsStringAsync());
         }
 
-        public async Task Update(Post post)
+        public async Task<Post> Update(Post post)
         {
             HttpClient client = GetClient();
             string json = JsonConvert.SerializeObject(post);
@@ -61,7 +63,31 @@ namespace GalleryTimeline
 
             var method = new HttpMethod("PATCH");
             var request = new HttpRequestMessage(method, Url+post.Id) { Content = content};
-            await client.SendAsync(request);
+            HttpResponseMessage response = await client.SendAsync(request);
+            if (response.IsSuccessStatusCode)
+            {
+                return JsonConvert.DeserializeObject<Post>(await response.Content.ReadAsStringAsync());
+            }
+            return null;
+
+            /*
+            using (HttpClientHandler ClientHandler = new HttpClientHandler())
+            using (HttpClient Client = new HttpClient(ClientHandler))
+            {
+                Client.DefaultRequestHeaders.Add("ZUMO-API-VERSION", "2.0.0");
+                using (HttpRequestMessage RequestMessage = new HttpRequestMessage(new HttpMethod("PATCH"), Url + post.Id))
+                {
+                    string json = JsonConvert.SerializeObject(post);
+                    RequestMessage.Content = new StringContent(json, Encoding.UTF8, "application/json");
+                    using (HttpResponseMessage ResponseMessage = await Client.SendAsync(RequestMessage))
+                    {
+                        Debug.WriteLine("ResponseMessage: " + ResponseMessage);
+                        string result = await ResponseMessage.Content.ReadAsStringAsync();
+                        Debug.WriteLine("ResponseMessage: " + result);
+                    }
+                }
+            }
+            */
         }
 
         public async Task Delete(string id)
