@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace GalleryTimeline
 {
-    public class PostManager : AbstractAzureEasyTableClient<Post>
+    public class PostsClient : AbstractAzureEasyTableClient<Post>
     {
         const string URL = "https://registrador.azurewebsites.net/tables/posts/";
 
-        public PostManager() : base(URL) { }
+        public PostsClient() : base(URL) { }
     }
 }

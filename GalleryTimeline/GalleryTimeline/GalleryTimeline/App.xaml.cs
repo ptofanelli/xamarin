@@ -7,13 +7,13 @@ namespace GalleryTimeline
 {
     public partial class App : Application
     {
-        public PostManager PostManager;
+        public PostsClient PostClient;
 
         public App()
         {
             InitializeComponent();
 
-            PostManager = new PostManager();
+            PostClient = new PostsClient();
 
             MainPage = new NavigationPage(new MainPage());
         }

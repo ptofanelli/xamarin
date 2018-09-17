@@ -76,7 +76,7 @@ namespace GalleryTimeline
         {
             IsBusy = true;
             App app = (App.Current as App);
-            await app.PostManager.DeleteAsync(post.Id);
+            await app.PostClient.DeleteAsync(post.Id);
             IsBusy = false;
             DisplayAlert("Remove", "Post removed successfuly.", "OK");
             Navigation.PopAsync();
@@ -91,11 +91,11 @@ namespace GalleryTimeline
 
             if (!string.IsNullOrWhiteSpace(post?.Id))
             {
-                await app.PostManager.UpdateAsync(post.Id, post);
+                await app.PostClient.UpdateAsync(post.Id, post);
             }
             else
             {
-                await app.PostManager.AddAsync(post);
+                await app.PostClient.AddAsync(post);
             }
 
             IsBusy = false;

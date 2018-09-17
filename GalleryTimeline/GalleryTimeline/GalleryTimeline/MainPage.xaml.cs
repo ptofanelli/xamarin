@@ -55,7 +55,7 @@ namespace GalleryTimeline
             IsBusy = true;
 
             List<Post> posts = new List<Post>();
-            posts.AddRange(await app.PostManager.GetAsync());
+            posts.AddRange(await app.PostClient.GetAsync());
             foreach (Post post in posts)
             {
                 try
