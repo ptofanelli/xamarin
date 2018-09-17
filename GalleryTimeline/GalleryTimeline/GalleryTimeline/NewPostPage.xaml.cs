@@ -28,13 +28,6 @@ namespace GalleryTimeline
             set { _PostText = value; OnPropertyChanged("PostText"); }
         }
 
-        private bool _IsEditMode;
-        public bool IsEditMode
-        {
-            get { return _IsEditMode; }
-            set { _IsEditMode = value; OnPropertyChanged("IsEditMode"); }
-        }
-
         private Command _SavePostCommand;
         public Command SavePostCommand
         {
@@ -64,9 +57,7 @@ namespace GalleryTimeline
                 PostImage = post.Image;
                 PostText = post.Text;
 
-                IsEditMode = true;
-                DeletePostCommand = new Command(DeletePostCommandExecute, (obj) => { return IsEditMode; });
-                OnPropertyChanged("DeletePostCommand");
+                DeletePostCommand = new Command(DeletePostCommandExecute, (obj) => { return true; });
             }
         }
 
@@ -75,7 +66,7 @@ namespace GalleryTimeline
             post = new Post();
             PostImage = ImageSource.FromResource("Icon.png");
             SavePostCommand = new Command(SavePostCommandExecute);
-            DeletePostCommand = new Command(DeletePostCommandExecute, (obj) => { return IsEditMode; });
+            DeletePostCommand = new Command(DeletePostCommandExecute, (obj) => { return false; });
 
             BindingContext = this;
             InitializeComponent();
@@ -85,9 +76,9 @@ namespace GalleryTimeline
         {
             IsBusy = true;
             App app = (App.Current as App);
-            await app.PostManager.Delete(post.Id);
+            await app.PostManager.DeleteAsync(post.Id);
             IsBusy = false;
-            DisplayAlert("Remover", "Post removido com sucesso.", "OK");
+            DisplayAlert("Remove", "Post removed successfuly.", "OK");
             Navigation.PopAsync();
         }
 
@@ -96,18 +87,19 @@ namespace GalleryTimeline
             IsBusy = true;
             App app = (App.Current as App);
 
+            post.Text = PostText;
+
             if (!string.IsNullOrWhiteSpace(post?.Id))
             {
-                post.Text = PostText;
-                await app.PostManager.Update(post);
+                await app.PostManager.UpdateAsync(post.Id, post);
             }
             else
             {
-                await app.PostManager.Add(PostText, imageBase64);
+                await app.PostManager.AddAsync(post);
             }
 
             IsBusy = false;
-            DisplayAlert("Salvar", "Post salvo com sucesso.", "OK");
+            DisplayAlert("Save", "Post saved successfuly.", "OK");
             Navigation.PopAsync();
         }
 

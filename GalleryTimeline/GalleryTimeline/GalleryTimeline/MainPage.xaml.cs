@@ -55,16 +55,12 @@ namespace GalleryTimeline
             IsBusy = true;
 
             List<Post> posts = new List<Post>();
-            posts.AddRange(await app.PostManager.GetAll());
+            posts.AddRange(await app.PostManager.GetAsync());
             foreach (Post post in posts)
             {
-
                 try
                 {
                     post.ImageBytes = Convert.FromBase64String(post.ImageBase64);
-                    //byte[] bytes = Convert.FromBase64String(post.ImageBase64);
-                    //Stream stream = new MemoryStream(bytes);
-                    //post.Image = ImageSource.FromStream(() => stream);
                 }
                 catch (Exception)
                 {
@@ -79,7 +75,6 @@ namespace GalleryTimeline
         protected override void OnAppearing()
         {
             base.OnAppearing();
-
             RefreshCommand.Execute(null);
         }
 
